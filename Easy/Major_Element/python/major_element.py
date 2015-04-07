@@ -4,8 +4,10 @@ def main(filename):
 	with open(filename, 'r') as f:
 		for line in f:
 			nums = line.strip().split(",")
-			for num in nums:
-				if nums.count(num) > len(nums)/2:
+			major = len(nums)/2
+			for i in xrange(major+1):
+				num = nums[i]
+				if nums.count(num) > major:
 					print num
 					break
 			else:
