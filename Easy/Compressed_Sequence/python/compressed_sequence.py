@@ -16,8 +16,6 @@ def main(filename):
 			comp_seq += [str(count), str(num)]
 			print " ".join(comp_seq)
 
-
-
 if len(sys.argv) != 2:
 	print "Usage ./compressed_sequence.py <filename>"
 	sys.exit(1)
