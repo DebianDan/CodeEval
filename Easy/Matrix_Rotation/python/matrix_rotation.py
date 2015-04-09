@@ -6,7 +6,14 @@ def create_matrix(line):
 	"""
 	lst = line.split()
 	n = int(len(lst)**.5)
-	mat = [lst[i*n:i*n+n] for i in range(n)]
+	return [lst[i*n:i*n+n] for i in range(n)]
+
+def quick_rot(line):
+	"""
+	Rotates an NxN matrix 90 degrees clockwise
+	"""
+	return zip(*reversed(create_matrix(line)))
+
 
 def main(filename):
 	with open(filename, 'r') as f:
