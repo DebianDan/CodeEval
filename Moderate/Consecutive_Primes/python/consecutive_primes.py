@@ -14,6 +14,7 @@ def all_sum_primes(perm, n):
 
 def find_perms(combs, n):
 	starts = [[y for y in x] for x in combs]
+	total = 0
 	i = 0
 	while i < len(starts):
 		#print starts
@@ -34,18 +35,20 @@ def find_perms(combs, n):
 				for opt in option:
 					starts.append(temp_p[:] + [opt])
 				options = []
-				del starts[i]
-				i-=1
+				#del starts[i]
+				#i-=1
 				break #go on to next start value
 			elif len(option) == 1:
 				temp_p.append(option[0])
+				if all_sum_primes(temp_p,n):
+					total += 1
 			else:
-				del starts[i]
-				i-=1
+				#del starts[i]
+				#i-=1
 				break
 		i += 1
 
-	return [perm for perm in starts if all_sum_primes(perm, n)]
+	return total
 
 
 def main(filename):
@@ -64,7 +67,7 @@ def main(filename):
 			#print "Prime Combinations:",prime_combs
 
 			perms = find_perms(prime_combs, n)
-			#print "Perms Returned", perms
+			#print "# Perms Returned", perms
 
 			# NO NEED TO REMOVE, just divide to remove cycles
 			# Remove Rotations
@@ -76,7 +79,7 @@ def main(filename):
 			# 			perms.remove(p2)
 			
 			#print "Answer:",perms
-			print len(perms)/(n/2)
+			print perms/(n/2)
 
 
 
