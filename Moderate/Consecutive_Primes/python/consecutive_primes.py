@@ -57,7 +57,7 @@ def main(filename):
 			n = int(line.strip())
 			if n % 2 == 1:
 				print 0
-				break
+				continue
 			beads = range(1, n+1)
 			all_combs = combinations(beads,2)
 			prime_combs = []
