@@ -39,6 +39,6 @@ def main(filename):
 
 
 if len(sys.argv) != 2:
-	print "Usage ./max_range_sum.py <filename>"
+	print "Usage",sys.argv[0],"<filename>"
 	sys.exit(1)
 main(sys.argv[1])
